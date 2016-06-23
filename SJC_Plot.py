@@ -3,10 +3,13 @@ plt.style.use('ggplot')
 # from matplotlib import cm
 # from mpl_toolkits.mplot3d import Axes3D
 
-def PlotLine1(X, Y, FigName):
+def PlotLine1(FigName, X, Y, AxisLimit):
     fig = plt.figure()
     plt.plot(X, Y, 'o-')
     plt.title(FigName)
+    axes = plt.gca()
+    axes.set_xlim([AxisLimit[0],AxisLimit[1]])
+    axes.set_ylim([AxisLimit[2],AxisLimit[3]])
     fig.savefig(FigName, dpi=200)
     print 'Figure ', FigName, ' is saved.'
     fig.clf()
